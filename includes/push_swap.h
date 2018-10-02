@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 05:01:17 by vnxele            #+#    #+#             */
-/*   Updated: 2018/09/11 07:15:35 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/09/23 12:25:19 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ typedef struct		s_vars
 {
 	t_stack		*a;
 	t_stack		*b;
-	int		i;
 	char		*line;
 	int		flag;
 	int		low;
 	int		high;
+	int		i;
+	int		j;
+	int		maxh;
+	int		maxl;
 }			t_vars;
 
 void			push(t_stack **head_ref, int new_data);
@@ -54,5 +57,9 @@ void			simple_solve(t_stack **a, t_stack **b, t_vars *var);
 void			solve4(t_stack **a, t_stack **b, t_vars *var);
 void			hlf(t_stack *a, int *arr, int dc);
 int			hlf_cmp(t_stack *a, int c, int *arr);
+void			solve(t_stack **a, t_stack **b, t_vars var, int dc);
+t_stack			*smllr(t_stack *a);
+int			get_distance(t_stack *a, int c);
+int			get_lst(t_stack *a);
 
 # endif

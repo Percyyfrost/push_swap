@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 12:15:47 by vnxele            #+#    #+#             */
-/*   Updated: 2018/08/31 05:55:51 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/09/23 11:48:46 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	reverse_ra(t_stack **a, int p)
 	t_stack *tmp_a;
 
 	tmp_a = *a;
-	if(!*a)
+	if (!*a)
 		return (0);
 	while (tmp_a)
 		if (!tmp_a->next)

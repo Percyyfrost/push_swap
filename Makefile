@@ -6,7 +6,7 @@
 #    By: vnxele <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/04 14:35:02 by vnxele            #+#    #+#              #
-#    Updated: 2018/09/11 06:10:56 by vnxele           ###   ########.fr        #
+#    Updated: 2018/09/23 12:18:40 by vnxele           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME1 = push_swap
 
 NAME2 = checker
 
-SRC1 = push_swap.c operations.c operations2.c execute.c extra_ft.c hlf_cmp.c
+SRC1 = push_swap.c operations.c operations2.c execute.c extra_ft.c hlf_cmp.c solve.c
 
 SRC2 = checker.c operations.c operations2.c execute.c extra_ft.c
 

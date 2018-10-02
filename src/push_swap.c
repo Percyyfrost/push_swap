@@ -6,18 +6,18 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 06:31:29 by vnxele            #+#    #+#             */
-/*   Updated: 2018/09/11 07:28:08 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/09/23 16:21:16 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	data_count(t_stack *head)
+int		data_count(t_stack *head)
 {
-	int r;
+	int	r;
 
 	r  = 0;
-	while(head)
+	while (head)
 	{
 		r++;
 		head = head->next;
@@ -25,26 +25,9 @@ int	data_count(t_stack *head)
 	return (r);
 }
 
-int	get_distance(t_stack *a, int c)
+t_stack		*smllr(t_stack *a)
 {
-	int	r;
-	t_stack *tmp;
-
-	tmp = a;
-	r = 0;
-	while (c < tmp->data)
-	{
-		r++;
-		tmp = tmp->next;
-	}
-	if (!tmp)
-		return (0);
-	return (r);
-}
-
-t_stack	*smllr(t_stack *a)
-{
-	int i;
+	int	i;
 
 	i = a->data;
 	while (a)
@@ -57,86 +40,11 @@ t_stack	*smllr(t_stack *a)
 	return (NULL);
 }
 
-int	get_lst(t_stack *a)
+int		get_lst(t_stack *a)
 {
 	while (a->next)
 		a = a->next;
 	return (a->data);
-}
-
-void	solve(t_stack **a, t_stack **b, t_vars var, int dc)
-{
-	t_stack *tmp;
-	t_stack *num;
-	int s;
-	int lst;
-	int arr[dc];
-
-	s = 0;
-	num = NULL;
-	hlf(var.a, arr, dc);
-	while (42)
-	{
-		tmp = var.a;
-		lst = get_lst(var.a);
-		if (!check_order(*a) && !*b)
-			break ;
-		while (tmp)
-		{
-			if ((num = smllr(tmp)))
-				s = get_distance(tmp, num->data);
-			if (!s && check_order(*a))
-				execute_operation("pb", a, b, 1);
-			while (num && s)
-			{
-				if (*b && (*b)->next)
-				{
-					if (*a && (*a)->next && (*a)->data > (*a)->next->data && (*b)->data < (*b)->next->data)
-						execute_operation("ss", a, b, 1);
-					else if ((*b)->data < (*b)->next->data)
-					{
-						execute_operation("sb", a, b, 1);
-					}
-				}
-				if (*a && !hlf_cmp(var.a, lst, arr))
-					execute_operation("rra", a, b, 1);
-				if (*a && (*a)->next && (*a)->data > (*a)->next->data)
-					execute_operation("sa", a, b, 1);
-				else if (check_order(*a))
-					execute_operation("pb", a, b, 1);
-				s--;
-			}
-			tmp = tmp->next;
-		}
-		if (*a && hlf_cmp(var.a, (*a)->data, arr))
-			execute_operation("ra", a, b, 1);
-		while (*b && !check_order(*a))
-		{
-			execute_operation("pa", a, b, 1);
-			if ((*a)->data > (*a)->next->data)
-				execute_operation("sa", a, b, 1);
-		}
-	}
-}
-
-
-void	solve4(t_stack **a, t_stack **b, t_vars *var)
-{
-	if (var->high == (*a)->data && !*b)
-		execute_operation("ra", a, b, 1);
-	if ((*a)->data > (*a)->next->data && !*b)
-		execute_operation("sa", a, b, 1);
-	t_stack *tmp = *a;
-	while (tmp->next)
-	{
-		if(tmp->data > tmp->next->data)
-			break ;
-		tmp = tmp->next;
-	}
-	if (*b && !tmp->next)
-		execute_operation("pa", a, b, 1);
-	if (tmp->next && !*b)
-		execute_operation("pb", a, b, 1);
 }
 
 void	simple_solve(t_stack **a, t_stack **b, t_vars *var)
@@ -150,7 +58,7 @@ void	simple_solve(t_stack **a, t_stack **b, t_vars *var)
 	{
 		if (tmp->data > var->high)
 			var->high = tmp->data;
-		if (tmp->data < var->high)
+		if (tmp->data < var->low)
 			var->low = tmp->data;
 		if (!tmp->next)
 			break ;
@@ -211,7 +119,7 @@ int	push_swap(char **av)
 		if (data_count(var.a) > 4)
 			solve(&var.a, &var.b, var, data_count(var.a));
 	}
-	while (var.a || var.b)
+	/*while (var.a || var.b)
 	{
 		if (var.a)
 			ft_putnbr(var.a->data);
@@ -226,8 +134,8 @@ int	push_swap(char **av)
 		write(1, "\n", 1);
 		if (var.a)
 			var.a = var.a->next;
-	}
-	return(0);
+	}*/
+	return (0);
 }
 
 int	main(int ac, char **av)

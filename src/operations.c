@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 21:25:49 by vnxele            #+#    #+#             */
-/*   Updated: 2018/09/05 13:48:20 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/09/22 08:45:00 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	swap_a(t_stack **a, int p)
 	tmp_node->data = (*a)->data;
 	(*a)->data = (*a)->next->data;
 	(*a)->next->data = tmp_node->data;
-	if(p)
+	if (p)
 		ft_putendl("sa");
 	return (0);
 }
@@ -53,12 +53,12 @@ int	ss(t_stack **a, t_stack **b, int p)
 
 int	push_a(t_stack **a, t_stack **b, int p)
 {
-	if(!*b)
+	if (!*b)
 		return (0);
 	push(a, (*b)->data);
 	*b = (*b)->next;
 	if (*b)
-	(*b)->prev = NULL;
+		(*b)->prev = NULL;
 	if (p)
 		ft_putendl("pa");
 	return (0);
@@ -66,12 +66,12 @@ int	push_a(t_stack **a, t_stack **b, int p)
 
 int	push_b(t_stack **a, t_stack **b, int p)
 {
-	if(!*a)
+	if (!*a)
 		return (0);
 	push(b, (*a)->data);
 	*a = (*a)->next;
 	if (*a)
-	(*a)->prev = NULL;
+		(*a)->prev = NULL;
 	if (p)
 		ft_putendl("pb");
 	return (0);
