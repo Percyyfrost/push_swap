@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 06:31:29 by vnxele            #+#    #+#             */
-/*   Updated: 2018/09/23 16:21:16 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/10/17 16:37:21 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,12 @@ t_stack		*smllr(t_stack *a)
 
 int		get_lst(t_stack *a)
 {
-	while (a->next)
-		a = a->next;
-	return (a->data);
+	t_stack *tmp;
+
+	tmp = a;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp->data);
 }
 
 void	simple_solve(t_stack **a, t_stack **b, t_vars *var)
@@ -119,7 +122,8 @@ int	push_swap(char **av)
 		if (data_count(var.a) > 4)
 			solve(&var.a, &var.b, var, data_count(var.a));
 	}
-	/*while (var.a || var.b)
+	write(1, "\n", 1);
+	while (var.a || var.b)
 	{
 		if (var.a)
 			ft_putnbr(var.a->data);
@@ -134,7 +138,7 @@ int	push_swap(char **av)
 		write(1, "\n", 1);
 		if (var.a)
 			var.a = var.a->next;
-	}*/
+	}
 	return (0);
 }
 

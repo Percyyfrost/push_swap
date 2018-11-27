@@ -6,7 +6,7 @@
 /*   By: vnxele <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 05:01:17 by vnxele            #+#    #+#             */
-/*   Updated: 2018/09/23 12:25:19 by vnxele           ###   ########.fr       */
+/*   Updated: 2018/10/09 12:10:39 by vnxele           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ void			solve(t_stack **a, t_stack **b, t_vars var, int dc);
 t_stack			*smllr(t_stack *a);
 int			get_distance(t_stack *a, int c);
 int			get_lst(t_stack *a);
+int			hvyside(t_stack *a);
+int			get_hlf(t_stack *a);
+int			anlyz(t_stack *a, int arr[]);
+void			bsolve(t_stack **a, t_stack **b, int arr[]);
 
 # endif
